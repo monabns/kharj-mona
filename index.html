@@ -1,35 +1,50 @@
 
 <!DOCTYPE html>
 <html lang="fa">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>خرج مونا</title>
-    <style>
-      body {
-        margin: 0;
-        padding: 50px 20px;
-        font-family: sans-serif;
-        background: linear-gradient(to top right, #fde2ff, #e0d4ff, #d2f1ff);
-        direction: rtl;
-        text-align: center;
-      }
-      .box {
-        background: white;
-        border-radius: 20px;
-        padding: 30px;
-        margin: auto;
-        max-width: 400px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      }
-      h1 { color: #8e44ad; }
-    </style>
-  </head>
-  <body>
-    <div class="box">
-      <h1>خرج مونا 💸</h1>
-      <p>نسخه کامل آماده آپلود در GitHub Pages</p>
-      <p>قابل نصب روی موبایل و مرورگر</p>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>خرج مونا</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(to top right, #fde2ff, #e0d4ff, #d2f1ff);
+      margin: 0; padding: 40px;
+      text-align: center;
+      direction: rtl;
+    }
+    .card { background: white; margin: 20px auto; padding: 20px; max-width: 500px; border-radius: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+    h1 { color: #8e44ad; }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>خرج مونا 💸</h1>
+    <p>درآمد ماهانه:</p>
+    <input id="income" type="number" value="25000000">
+    <p>خرج ثابت:</p>
+    <input id="expense" type="number" value="7000000">
+    <p>اقساط:</p>
+    <input id="installments" type="number" value="6500000">
+    <br>
+    <button onclick="calculate()">محاسبه پس‌انداز</button>
+    <h2 id="result"></h2>
+  </div>
+
+  <script>
+    function calculate() {
+      const income = parseInt(document.getElementById('income').value);
+      const expense = parseInt(document.getElementById('expense').value);
+      const installments = parseInt(document.getElementById('installments').value);
+      const savings = income - expense - installments;
+      document.getElementById('result').textContent = 'پس‌انداز ماهانه: ' + savings.toLocaleString() + ' تومان';
+    }
+  </script>
+</body>
 </html>
